@@ -1,0 +1,15 @@
+/home/jh/Documents/skola/VOB/HallMonitor/bin/Debug/net10.0/HallMonitor
+/home/jh/Documents/skola/VOB/HallMonitor/bin/Debug/net10.0/HallMonitor.deps.json
+/home/jh/Documents/skola/VOB/HallMonitor/bin/Debug/net10.0/HallMonitor.runtimeconfig.json
+/home/jh/Documents/skola/VOB/HallMonitor/bin/Debug/net10.0/HallMonitor.dll
+/home/jh/Documents/skola/VOB/HallMonitor/bin/Debug/net10.0/HallMonitor.pdb
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.GeneratedMSBuildEditorConfig.editorconfig
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.AssemblyInfoInputs.cache
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.AssemblyInfo.cs
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.csproj.CoreCompileInputs.cache
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.sourcelink.json
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.dll
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/refint/HallMonitor.dll
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.pdb
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/HallMonitor.genruntimeconfig.cache
+/home/jh/Documents/skola/VOB/HallMonitor/obj/Debug/net10.0/ref/HallMonitor.dll
