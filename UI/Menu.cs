@@ -13,13 +13,16 @@ public class Menu
         _hall.AlarmRaised += AlarmRaised;
     }
 
-    public void SetHall(Hall hall) => _hall = hall;
-
-    private void AlarmRaised(object sender, EventArgs eventArgs)
+    ~Menu()
     {
-        if(eventArgs is Sensor.Data data)
+        _hall.AlarmRaised -= AlarmRaised;
+    }
+
+    private void AlarmRaised(object sender, Reading reading)
+    {
+        if(sender is Hall)
         {
-            Console.WriteLine($"{Environment.NewLine}! ALARM !{Environment.NewLine}{data.Reading.SensorName}: {data.Reading.ToString()}");
+            Console.WriteLine($"{Environment.NewLine}! ALARM !{Environment.NewLine}{reading.SensorName}: {reading.ToString()}");
             Console.Write(_cursor);
         }
     }
@@ -31,6 +34,7 @@ public class Menu
         switch(command)
         {
             case 0:
+                Console.WriteLine(ReportSingleton.Instance.Report);
                 return false;
             
             case 1:

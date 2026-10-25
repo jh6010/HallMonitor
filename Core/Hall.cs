@@ -10,7 +10,19 @@ public class Hall
     public ImmutableList<Device> Devices => _devices.ToImmutableList<Device>();
     public ImmutableList<Reading> AlarmHistory => _alarmHistory.ToImmutableList<Reading>();
 
-    public event EventHandler<Sensor.Data> AlarmRaised;
+    public event EventHandler<Reading> AlarmRaised;
+
+    ~Hall()
+    {
+        foreach(Device device in _devices)
+        {
+            if(device is Sensor sensor)
+            {
+                sensor.LimitExceeded -= SensorLimitExceeded;
+                sensor.MeasurementTaken -= SensorMeasurementTaken;
+            }
+        }
+    }
 
     public void AddDevice(Device device) 
     {
@@ -19,6 +31,7 @@ public class Hall
         if(device is Sensor sensor) 
         {
             sensor.LimitExceeded += SensorLimitExceeded;
+            sensor.MeasurementTaken += SensorMeasurementTaken;
         }
     }
 
@@ -29,17 +42,20 @@ public class Hall
         if(device is Sensor sensor) 
         {
             sensor.LimitExceeded -= SensorLimitExceeded;
+            sensor.MeasurementTaken -= SensorMeasurementTaken;
         }
     }
 
-    private void SensorLimitExceeded(object sender, EventArgs eventArgs)
+    private void SensorLimitExceeded(object sender, Reading reading)
     {
-        if(eventArgs is Sensor.Data data)
+        if(sender is Sensor)
         {
-            AlarmRaised.Invoke(this, data);
-            _alarmHistory.Add(data.Reading);
+            AlarmRaised?.Invoke(this, reading);
+            _alarmHistory.Add(reading);
         }
     }
+
+    private void SensorMeasurementTaken(object sender, EventArgs eventArgs) => ReportSingleton.Instance.IncrementMeasurementCount();
 
     public void StartAll()
     {

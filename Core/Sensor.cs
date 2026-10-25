@@ -12,11 +12,8 @@ public abstract class Sensor : Device
 
     protected abstract Reading Measure();
 
-    public class Data(Reading reading) : EventArgs
-    {
-        public Reading Reading = reading;
-    }
-    public event EventHandler<Data> LimitExceeded;
+    public event EventHandler<Reading> LimitExceeded;
+    public event EventHandler MeasurementTaken;
 
     public Sensor(string name, double limit) : base(name)
     {
@@ -52,15 +49,17 @@ public abstract class Sensor : Device
     private void OnTick(object sender, System.Timers.ElapsedEventArgs e)
     {
         Reading reading = Measure();
+        MeasurementTaken?.Invoke(this, null);
+
         if(reading.IsEmpty)
         {
-            throw new InvalidDataException("reading cant be empty");
+            throw new InvalidDataException("Reading cant be empty");
         }
         _lastReading = reading;
 
         if(reading.Value > Limit)
         {
-            LimitExceeded.Invoke(this, new(reading));
+            LimitExceeded?.Invoke(this, reading);
         }
     }
 }

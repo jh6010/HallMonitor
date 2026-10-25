@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HallMonitor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d1b736909d4ae11973d60e0eedcc31d846ab5a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d562c33fe346e8b920e6d5db04e2868636c3fd0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("HallMonitor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HallMonitor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,7 +8,7 @@ public class Program
 {
     public static void Main()
     {
-        Console.WriteLine("=== Hall Monitor ===");
+        ReportSingleton.Instance.StartTimer();
 
         List<Device> devices =
         [
