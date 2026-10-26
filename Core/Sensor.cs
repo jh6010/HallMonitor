@@ -13,7 +13,6 @@ public abstract class Sensor : Device
     protected abstract Reading Measure();
 
     public event EventHandler<Reading> LimitExceeded;
-    public event EventHandler MeasurementTaken;
 
     public Sensor(string name, double limit) : base(name)
     {
@@ -49,7 +48,7 @@ public abstract class Sensor : Device
     private void OnTick(object sender, System.Timers.ElapsedEventArgs e)
     {
         Reading reading = Measure();
-        MeasurementTaken?.Invoke(this, null);
+        ReportSingleton.Instance.IncrementMeasurementCount();
 
         if(reading.IsEmpty)
         {

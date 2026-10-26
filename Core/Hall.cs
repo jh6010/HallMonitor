@@ -19,7 +19,6 @@ public class Hall
             if(device is Sensor sensor)
             {
                 sensor.LimitExceeded -= SensorLimitExceeded;
-                sensor.MeasurementTaken -= SensorMeasurementTaken;
             }
         }
     }
@@ -31,7 +30,6 @@ public class Hall
         if(device is Sensor sensor) 
         {
             sensor.LimitExceeded += SensorLimitExceeded;
-            sensor.MeasurementTaken += SensorMeasurementTaken;
         }
     }
 
@@ -42,7 +40,6 @@ public class Hall
         if(device is Sensor sensor) 
         {
             sensor.LimitExceeded -= SensorLimitExceeded;
-            sensor.MeasurementTaken -= SensorMeasurementTaken;
         }
     }
 
@@ -54,8 +51,6 @@ public class Hall
             _alarmHistory.Add(reading);
         }
     }
-
-    private void SensorMeasurementTaken(object sender, EventArgs eventArgs) => ReportSingleton.Instance.IncrementMeasurementCount();
 
     public void StartAll()
     {
